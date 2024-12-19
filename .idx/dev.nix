@@ -4,8 +4,12 @@
     pkgs.nodejs_20
     pkgs.docker
   ];
+  services = {
+    docker = {
+      enable = true;
+    };
+  };
   idx.extensions = [
-    
   ];
   idx.previews = {
     previews = {
