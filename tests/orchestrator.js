@@ -1,10 +1,13 @@
 import retry from "async-retry"
 
+const MAX_TIMEOUT_IN_MILLISECONDS = 1_000
+const RETRIES = 100
+
 async function waitForAllServices() {
   async function waitForWebServer() {
     return retry(fetchStatusPage, {
-      retries: 100,
-      maxTimeout: 1000,
+      retries: RETRIES,
+      maxTimeout: MAX_TIMEOUT_IN_MILLISECONDS,
     }) 
 
     async function fetchStatusPage() {
