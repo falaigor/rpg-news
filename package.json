@@ -6,20 +6,15 @@
   "scripts": {
     "setup:dev": "npm run services:up && npm run wait:pg && npm run migration:up",
     "dev": "npm run setup:dev && next dev",
-    
     "migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
     "migration:up": "node-pg-migrate --migrations-dir infra/migrations --envPath .env.development up",
-    
     "services:up": "docker compose -f infra/compose.yml up -d",
     "services:stop": "docker compose -f infra/compose.yml stop",
     "services:down": "docker compose -f infra/compose.yml down",
-    
     "test": "npm run services:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand --verbose\"",
     "test:watch": "jest --watchAll --runInBand",
-    
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
-
     "wait:pg": "node infra/scripts/wait-for-postgres.js"
   },
   "author": "",

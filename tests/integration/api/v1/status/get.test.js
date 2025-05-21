@@ -1,8 +1,8 @@
-import orchestrator from "tests/orchestrator"
+import orchestrator from "tests/orchestrator";
 
 beforeAll(async () => {
-  await orchestrator.waitForAllServices()
-})
+  await orchestrator.waitForAllServices();
+});
 
 describe("GET to /api/v1/status", () => {
   it("should be return statusCode 200", async () => {
