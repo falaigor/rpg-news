@@ -42,7 +42,7 @@ function getSSLValues() {
 
 const database = {
   query,
-  getNewClient
-}
+  getNewClient,
+};
 
-export default database
+export default database;
